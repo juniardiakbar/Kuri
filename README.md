@@ -11,7 +11,7 @@
 1. An endpoint contains _string_ plaintext and _int_ key, and change it into ciphertext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "plaintext": InsertPlaintextHere,
+  "plaintext": "InsertPlaintextHere",
   "key": 12
 }
 ```
@@ -19,7 +19,7 @@
 2. An endpoint contains _string_ ciphertext and _int_ key, and change it into plaintext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "ciphertext": InsertCiphertextHere,
+  "ciphertext": "InsertCiphertextHere",
   "key": 12
 }
 ```
@@ -33,16 +33,16 @@ http://0.0.0.0:8080/caesarcipher
 1. An endpoint contains _string_ plaintext and _string_ key, and change it into ciphertext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "plaintext": InsertPlaintextHere,
-  "key": KURI
+  "plaintext": "InsertPlaintextHere",
+  "key": "KURI"
 }
 ```
 
 2. An endpoint contains _string_ ciphertext and _string_ key, and change it into plaintext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "ciphertext": InsertCiphertextHere,
-  "key": KURI
+  "ciphertext": "InsertCiphertextHere",
+  "key": "KURI"
 }
 ```
 
