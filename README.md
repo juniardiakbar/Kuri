@@ -1,52 +1,54 @@
-# Kuri
-**_(Ubah file README.md ini setelah program diselesaikan)_**
-## Bagian 1
-## Latar Belakang
-[What is encryption](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/):
-> Encryption transforms data into another format in such a way that only specific individual(s) can reverse the transformation. It uses a key, which is kept secret, in conjunction with the plaintext and the algorithm, in order to perform the encryption operation. As such, the ciphertext, algorithm, and key are all required to return to the plaintext.
-
-[Why it matters](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/):
-> The purpose of encryption is to transform data in order to keep it secret from others, e.g. sending someone a secret letter that only they should be able to read, or securely sending a password over the Internet. Rather than focusing on usability, the goal is to ensure the data cannot be consumed by anyone other than the intended recipient(s).
+# Kuri API Encryption
 
 ## Spesifikasi Tugas
-1. Membuat _API_ yang dapat melakukan _encryption_ dan _decryption_ pada _text_
-2. [Jenis _cipher_ yang dapat diimplementasikan](#penilaian)
-3. **TIDAK** harus semua _cipher_ diimplementasikan
-4. [Daftar teknologi yang boleh digunakan](https://research.hackerrank.com/developer-skills/2019#skills)
-5. Tugas dikerjakan **individual**
+1. API can do encryption and decryption text
+2. There are _caesarcipher_ and _vigenerecipher_ for encrypt and decrypt text
+3. This API using golang and gin as a router
 
-## Langkah Pengerjaan
-1. _Fork repository_ ini
-2. Kerjakan tugas sesuai spesifikasi
-3. Berikan penjelasan atas tugas yang telah dibuat (silakan _overwrite file_ README ini)
-4. Buat _pull request_
+## API Spesification
 
-## Spesifikasi API
-Buatlah API dengan ketentuan:
-
-1. Sebuah _endpoint_ yang akan menerima _plaintext_, lalu mengubahnya menjadi _ciphertext_. _Endpoint_ akan menerima **POST** _request_ dengan _payload_:
+### Caesar Cipher
+1. An endpoint contains _string_ plaintext and _int_ key, and change it into ciphertext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "plaintext": "Insert plaintext here"
+  "plaintext": InsertPlaintextHere,
+  "key": 12
 }
 ```
 
-2. Sebuah _endpoint_ yang akan menerima _ciphertext_, lalu mengubahnya menjadi _plaintext_. _Endpoint_ akan menerima **POST** _request_ dengan _payload_:
+2. An endpoint contains _string_ ciphertext and _int_ key, and change it into plaintext. Endpoint will receive **POST** request with payload:
 ```JSON
 {
-  "ciphertext": "Insert ciphertext here"
+  "ciphertext": InsertCiphertextHere,
+  "key": 12
 }
 ```
 
-3. API harus dapat diakses melalui internet
+**Request:**
+```
+http://0.0.0.0:8080/caesarcipher
+```
 
-## Penilaian
-| _Cipher_ | Nilai |
-| --- | --- |
-| _Caesar Cipher_ | 100 |
-| _Vigenère Cipher_ | 200 |
-| _Coming soon_ | _TBD_ |
-| _Coming soon_ | _TBD_ |
+### Vigenere Cipher
+1. An endpoint contains _string_ plaintext and _string_ key, and change it into ciphertext. Endpoint will receive **POST** request with payload:
+```JSON
+{
+  "plaintext": InsertPlaintextHere,
+  "key": KURI
+}
+```
 
-## Bagian 2
-Coming Soon
+2. An endpoint contains _string_ ciphertext and _string_ key, and change it into plaintext. Endpoint will receive **POST** request with payload:
+```JSON
+{
+  "ciphertext": InsertCiphertextHere,
+  "key": KURI
+}
+```
+
+**Request:**
+```
+http://0.0.0.0:8080/vigenerecipher
+```
+
+**Make sure plaintext and ciphertext only contains char 'A'-'Z' and 'a'-'z'**
