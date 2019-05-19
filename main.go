@@ -50,6 +50,10 @@ func caesar(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"plaintext": plain,
 			})
+		} else if ci == "" && pl == "" {
+			c.JSON(400, gin.H{
+				"error": "ciphertext or plaintext doest not exist",
+			})
 		}
 	}
 }
@@ -110,6 +114,10 @@ func vigenere(c *gin.Context) {
 		}
 		c.JSON(200, gin.H{
 			"plaintext": plain,
+		})
+	} else if ci == "" && pl == "" {
+		c.JSON(400, gin.H{
+			"error": "ciphertext or plaintext doest not exist",
 		})
 	}
 }
